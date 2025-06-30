@@ -1,76 +1,66 @@
-# App S9 - SharedPreferences Demo
+ ## 📱 Am_s9 - SharedPreferences Demo
 
-Aplicación Android de ejemplo que demuestra el uso básico de SharedPreferences para almacenamiento persistente de datos.
+Aplicación Android desarrollada en Kotlin que demuestra el uso completo de `SharedPreferences` con un diseño moderno, siguiendo Material Design. Permite guardar un perfil de usuario, contar visitas, alternar entre modo claro/oscuro y más.
 
-## 📱 Descripción
+---
 
-Esta aplicación implementa un sistema simple de SharedPreferences que permite:
-- Guardar y recuperar datos de usuario
-- Detectar la primera ejecución de la app
-- Limpiar todas las preferencias guardadas
+## 🧩 Descripción General
+
+Esta app incluye las siguientes funcionalidades principales:
+
+- Guardado persistente de datos mediante `SharedPreferences`
+- Contador automático de visitas cada vez que se abre la app
+- Formulario de perfil de usuario con campos: Nombre, Edad y Email
+- Alternancia de modo claro/oscuro con persistencia
+- Interfaz moderna usando Material Design 3
+
+---
 
 ## 🚀 Características
 
-- **SharedPreferencesHelper**: Clase wrapper para simplificar el uso de SharedPreferences
-- **Tipos de datos soportados**: String, Boolean, Int, Float, Long
-- **Interfaz simple**: Campos de entrada y botones para interactuar con las preferencias
-- **Persistencia**: Los datos se mantienen incluso después de cerrar la aplicación
+### ✅ Contador de Visitas
+- Aumenta automáticamente al abrir la app
+- Botón para reiniciar a cero
+- Se guarda usando `SharedPreferences`
 
-## 📋 Requisitos
+### ✅ Perfil de Usuario
+- Activity dedicada para nombre, edad y email
+- Botones para guardar y cargar datos
+- Persistencia total incluso tras cerrar la app
 
-- Android Studio Arctic Fox o superior
-- SDK mínimo: API 21 (Android 5.0)
-- SDK objetivo: API 34 (Android 14)
-- Kotlin 1.9.0
+### ✅ Modo Claro/Oscuro
+- Switch para cambiar entre temas
+- Preferencia almacenada en `SharedPreferences`
+- Se aplica automáticamente al abrir
 
-## 🛠️ Instalación
+### ✅ Interfaz Moderna
+- Inputs con `TextInputLayout`
+- Botones Material
+- Soporte completo para Material 3
+- Adaptada para pantallas pequeñas con `ScrollView`
 
-1. Clona el repositorio:
-```bash
-git clone https://github.com/GxJohan/app_s9.git
-```
+---
 
-2. Abre el proyecto en Android Studio
+## 📋 Requisitos Técnicos
 
-3. Sincroniza el proyecto con Gradle
+- **IDE:** Android Studio Hedgehog o superior
+- **SDK mínimo:** API 24 (Android 7.0)
+- **SDK objetivo:** API 35 (Android 14)
+- **Lenguaje:** Kotlin 2.0.21
+- **Material Design:** v1.10.0
 
-4. Ejecuta la aplicación en un emulador o dispositivo físico
+ ## 💻 Uso
+- ✍️ Guardar usuario: Escribe un nombre y presiona "Guardar"
+- 📥 Cargar usuario: Presiona "Cargar" para mostrar los datos guardados
+- 🧹 Limpiar: Presiona "Limpiar todo" para borrar las preferencias
+- 🔢 Contador: El número de visitas se incrementa automáticamente
+- ♻️ Reiniciar contador: Presiona el botón correspondiente
+- 🌓 Tema oscuro: Usa el switch para alternar entre modos
 
-## 💻 Uso
+## 📷 Captura de pantalla
+![image](https://github.com/user-attachments/assets/4ffc167e-f7ae-4595-a10f-f6480ea4c5e2)
+![image](https://github.com/user-attachments/assets/f633e012-c0f4-4eff-aab4-9567348050c8)
+![image](https://github.com/user-attachments/assets/8ac68022-bae7-4de5-8e2e-55afdea24afa)
+![image](https://github.com/user-attachments/assets/2d39bb3e-76e3-4484-88d0-2834ea2bc623)
 
-1. **Guardar datos**: Ingresa tu nombre y presiona "Guardar"
-2. **Cargar datos**: Presiona "Cargar" para ver los datos guardados
-3. **Limpiar datos**: Presiona "Limpiar Todo" para eliminar todas las preferencias
 
-## 📂 Estructura del Proyecto
-
-```
-app_s9/
-├── app/
-│   └── src/
-│       └── main/
-│           ├── java/com/example/app_s9/
-│           │   ├── MainActivity.kt
-│           │   └── SharedPreferencesHelper.kt
-│           └── res/
-│               └── layout/
-│                   └── activity_main.xml
-└── SharedPreferences_Guide.md
-```
-
-## 📖 Documentación
-
-Para más detalles sobre la implementación y cómo extender la funcionalidad, consulta [SharedPreferences_Guide.md](SharedPreferences_Guide.md)
-
-## 🤝 Contribuciones
-
-Las contribuciones son bienvenidas. Por favor:
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
-## 📄 Licencia
-
-Este proyecto es de código abierto y está disponible bajo la Licencia MIT.

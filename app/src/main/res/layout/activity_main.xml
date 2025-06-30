@@ -1,63 +1,83 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<?xml version="1.0" encoding="utf-8"?><ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?android:attr/windowBackground"
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:padding="24dp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <EditText
-            android:id="@+id/editTextUsername"
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.Material3.TextInputLayout.FilledBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Ingresa tu nombre"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="16dp" />
+            android:hint="Nombre de usuario">
 
-        <Button
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextUsername"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Guardar"
-            android:layout_marginBottom="16dp" />
+            android:text="Guardar" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonLoad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Cargar"
-            android:layout_marginBottom="16dp" />
+            android:text="Cargar" />
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/buttonClear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Limpiar Todo"
-            android:layout_marginBottom="16dp" />
+            android:text="Limpiar todo" />
 
         <TextView
             android:id="@+id/textViewResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text=""
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:text="Resultado"
+            android:textSize="16sp"
+            android:textColor="@color/textPrimary"
+            android:layout_marginTop="16dp" />
+
         <TextView
+            android:id="@+id/tvVisitCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Visitas: 0"
+            android:textSize="20sp"
+            android:layout_marginTop="16dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnResetCounter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="este es un contador "/>
+            android:text="Reiniciar contador" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnIrPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver perfil" />
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchModoOscuro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modo Oscuro "
+            android:layout_marginTop="16dp" />
 
     </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

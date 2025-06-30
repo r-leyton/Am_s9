@@ -1,14 +1,17 @@
 package com.example.app_s9
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
     
@@ -18,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var buttonLoad: Button
     private lateinit var buttonClear: Button
     private lateinit var textViewResult: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -39,6 +43,57 @@ class MainActivity : AppCompatActivity() {
         
         // Verificar si es la primera vez que se abre la app
         checkFirstTime()
+        val tvVisitCount = findViewById<TextView>(R.id.tvVisitCount)
+        val btnReset = findViewById<Button>(R.id.btnResetCounter)
+
+        // Obtener instancia de SharedPreferences
+        val sharedPref = getSharedPreferences("AppPrefs", MODE_PRIVATE)
+        var visitCount = sharedPref.getInt("visit_count", 0)
+
+        // Incrementar y guardar el nuevo valor
+        visitCount++
+        sharedPref.edit().putInt("visit_count", visitCount).apply()
+
+        // Mostrar en pantalla
+        tvVisitCount.text = "Visitas: $visitCount"
+
+        // Reiniciar al presionar el botón
+        btnReset.setOnClickListener {
+            visitCount = 0
+            sharedPref.edit().putInt("visit_count", 0).apply()
+            tvVisitCount.text = "Visitas: 0"
+        }
+        val btnIrPerfil = findViewById<Button>(R.id.btnIrPerfil)
+        btnIrPerfil.setOnClickListener {
+            startActivity(Intent(this, PerfilActivity::class.java))
+        }
+
+        val switchModo = findViewById<com.google.android.material.switchmaterial.SwitchMaterial>(R.id.switchModoOscuro)
+
+        val isDarkMode = sharedPref.getBoolean("modo_oscuro", false)
+
+// Aplica el modo almacenado
+        AppCompatDelegate.setDefaultNightMode(
+            if (isDarkMode)
+                AppCompatDelegate.MODE_NIGHT_YES
+            else
+                AppCompatDelegate.MODE_NIGHT_NO
+        )
+
+// Mostrar el estado en el switch
+        switchModo.isChecked = isDarkMode
+
+// Guardar cuando se cambia
+        switchModo.setOnCheckedChangeListener { _, isChecked ->
+            sharedPref.edit().putBoolean("modo_oscuro", isChecked).apply()
+            AppCompatDelegate.setDefaultNightMode(
+                if (isChecked)
+                    AppCompatDelegate.MODE_NIGHT_YES
+                else
+                    AppCompatDelegate.MODE_NIGHT_NO
+            )
+            recreate() // Reinicia la actividad para aplicar los cambios de tema
+        }
     }
     
     private fun initViews() {

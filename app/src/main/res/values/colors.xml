@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="primary">#1E88E5</color>       <!-- Azul moderno -->
+    <color name="primaryVariant">#1565C0</color> <!-- Azul oscuro -->
+    <color name="secondary">#FF9800</color>     <!-- Naranja -->
+    <color name="background">#F5F5F5</color>    <!-- Gris claro -->
+    <color name="textPrimary">#212121</color>
+    <color name="textOnPrimary">#FFFFFF</color>
 </resources>
